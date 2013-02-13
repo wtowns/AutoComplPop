@@ -364,8 +364,6 @@ function s:feedPopup()
   " NOTE: With CursorMovedI driven, Set 'lazyredraw' to avoid flickering.
   "       With Mapping driven, set 'nolazyredraw' to make a popup menu visible.
   call s:setTempOption(s:GROUP0, 'lazyredraw', !g:acp_mappingDriven)
-  " NOTE: 'textwidth' must be restored after <C-e>.
-  call s:setTempOption(s:GROUP1, 'textwidth', 0)
   call s:setCompletefunc()
   call feedkeys(s:behavsCurrent[s:iBehavs].command . "\<C-r>=acp#onPopupPost()\<CR>", 'n')
   return '' " this function is called by <C-r>=
